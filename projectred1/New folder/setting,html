@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Settings</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --card-bg: #fff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            padding: 0 20px 20px;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu {
+            margin-top: 30px;
+        }
+        
+        .nav-item {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-item.active {
+            background-color: var(--secondary-color);
+        }
+        
+        .nav-item i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .welcome {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            margin-right: 10px;
+            overflow: hidden;
+        }
+        
+        .logout-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        /* Settings Container */
+        .settings-container {
+            max-width: 800px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            margin-right: 15px;
+        }
+        
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                padding: 10px 0;
+            }
+            
+            .nav-menu {
+                display: flex;
+                overflow-x: auto;
+                margin-top: 10px;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">Expense Tracker</div>
+            
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i>📊</i> Dashboard
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i>📋</i> Expenses
+                </a>
+                <a href="budgets.html" class="nav-item">
+                    <i>💰</i> Budgets
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i>📈</i> Reports
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <i>⚙️</i> Settings
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1 class="welcome">Settings</h1>
+                <div class="profile">
+                    <div class="profile-pic"></div>
+                    <button class="logout-btn">Logout</button>
+                </div>
+            </div>
+            
+            <div class="settings-container">
+                <div class="card">
+                    <h2 class="section-title">Preferences</h2>
+                    
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency">
+                            <option value="INR">Indian Rupee (₹)</option>
+                            <option value="USD">US Dollar ($)</option>
+                            <option value="EUR">Euro (€)</option>
+                            <option value="GBP">British Pound (£)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="language">Language</label>
+                        <select id="language">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date-format">Date Format</label>
+                        <select id="date-format">
+                            <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+                            <option value="mm/dd/yyyy">MM/DD/YYYY</option>
+                            <option value="yyyy/mm/dd">YYYY/MM/DD</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="dark-mode">
+                            <span class="toggle">
+                                <span class="slider"></span>
+                            </span>
+                            Dark Mode
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2 class="section-title">Notification Settings</h2>
+                    
+                    <div class="form-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="budget-alerts" checked>
+                            <span class="toggle">
+                                <span class="slider"></span>
+                            </span>
+                            Budget Alerts
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="expense-notifications" checked>
+                            <span class="toggle">
+                                <span class="slider"></span>
+                            </span>
+                            Expense Notifications
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="weekly-summary" checked>
+                            <span class="toggle">
+                                <span class="slider"></span>
+                            </span>
+                            Weekly Summary Email
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2 class="section-title">Account Settings</h2>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="user@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="••••••••">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="Leave blank to keep current password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" placeholder="Leave blank to keep current password">
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <button id="save-settings" class="btn">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load saved settings
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+            
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('dark-mode');
+            darkModeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+            
+            // Save settings button
+            document.getElementById('save-settings').addEventListener('click', function() {
+                saveSettings();
+            });
+        });
+        
+        function loadSettings() {
+            // Load currency preference
+            const savedCurrency = localStorage.getItem('currency') || 'INR';
+            document.getElementById('currency').value = savedCurrency;
+            
+            // Load language preference
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            document.getElementById('language').value = savedLanguage;
+            
+            // Load date format preference
+            const savedDateFormat = localStorage.getItem('dateFormat') || 'dd/mm/yyyy';
+            document.getElementById('date-format').value = savedDateFormat;
+            
+            // Load dark mode preference
+            const darkMode = localStorage.getItem('darkMode') === 'enabled';
+            document.getElementById('dark-mode').checked = darkMode;
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+            }
+            
+            // Load notification settings
+            const budgetAlerts = localStorage.getItem('budgetAlerts') !== 'disabled';
+            const expenseNotifications = localStorage.getItem('expenseNotifications') !== 'disabled';
+            const weeklySummary = localStorage.getItem('weeklySummary') !== 'disabled';
+            
+            document.getElementById('budget-alerts').checked = budgetAlerts;
+            document.getElementById('expense-notifications').checked = expenseNotifications;
+            document.getElementById('weekly-summary').checked = weeklySummary;
+        }
+        
+        function saveSettings() {
+            // Save preferences
+            localStorage.setItem('currency', document.getElementById('currency').value);
+            localStorage.setItem('language', document.getElementById('language').value);
+            localStorage.setItem('dateFormat', document.getElementById('date-format').value);
+            
+            // Save notification settings
+            localStorage.setItem('budgetAlerts', document.getElementById('budget-alerts').checked ? 'enabled' : 'disabled');
+            localStorage.setItem('expenseNotifications', document.getElementById('expense-notifications').checked ? 'enabled' : 'disabled');
+            localStorage.setItem('weeklySummary', document.getElementById('weekly-summary').checked ? 'enabled' : 'disabled');
+            
+            // Save account settings
+            const email = document.getElementById('email').value;
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Basic validation
+            if (email) {
+                localStorage.setItem('email', email);
+            }
+            
+            if (newPassword && confirmPassword) {
+                if (newPassword === confirmPassword) {
+                    // In a real app, you would hash the password before storing
+                    // For demo purposes, we'll just store it as plain text
+                    localStorage.setItem('password', newPassword);
+                } else {
+                    alert('New password and confirm password do not match!');
+                    return;
+                }
+            }
+            
+            alert('Settings saved successfully!');
+        }
+    </script>
+</body>
+</html>

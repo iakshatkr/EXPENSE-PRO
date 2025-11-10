@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            border-right: 1px solid #333;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .logo img {
+            width: 40px;
+        }
+
+        .logo h3 {
+            font-size: 12px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background-color: #2a2a2a;
+        }
+
+        .nav-item.active {
+            background-color: #2a2a2a;
+            border-left: 3px solid #9c27b0;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .popular-section {
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            background-color: #333;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #bbb;
+        }
+
+        .card-action {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #9c27b0;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .card-toggle {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .card-toggle::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+            top: 1px;
+            left: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTEyIDJMMiA3bDEwIDUgMTAtNS0xMC01ek0yIDEybDEwIDUgMTAtNS0xMC01LTEwIDV6Ii8+PHBhdGggZmlsbD0iI2U5ZTllOSIgZD0iTTIgMTJsMTAgNSAxMC01LTEwLTUtMTAgNXoiLz48L3N2Zz4=" alt="Logo">
+                <h3>EXPENSES</h3>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active">Profile</li>
+                <li class="nav-item">Integrations</li>
+                <li class="nav-item">Settings</li>
+                <li class="nav-item">Monthly Reports</li>
+                <li class="nav-item">Dashboard</li>
+                <li class="nav-item">Expense Categories</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Expense Tracker</h1>
+                <div class="popular-section">
+                    <div class="section-header">
+                        <h2>Popular (6)</h2>
+                    </div>
+                    <div class="card-grid">
+                        <!-- Drinking Card -->
+                        <div class="card">
+                            <div class="card-icon">D</div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h3>Drinking</h3>
+                                    <span class="tag">Daily activity</span>
+                                </div>
+                                <p class="card-description">
+                                    Moderate drinking may have social benefits, but excessive alcohol use increases health risks like liver disease, addiction, and accidents. Follow guidelines (1-2 drinks/day max), avoid binge drinking, and never drink and drive.
+                                </p>
+                            </div>
+                            <div class="card-action">↑</div>
+                        </div>
+
+                        <!-- Health Card -->
+                        <div class="card">
+                            <div class="card-icon">H</div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h3>Health</h3>
+                                    <span class="tag">Finance</span>
+                                </div>
+                                <p class="card-description">
+                                    Excessive alcohol use harms your liver, heart, and mental health, while moderate drinking (1-2 drinks/day) may have limited benefits. Stay within guidelines and avoid binge drinking to reduce risks.
+                                </p>
+                            </div>
+                            <div class="card-action">↑</div>
+                        </div>
+
+                        <!-- Body Fitness Card -->
+                        <div class="card">
+                            <div class="card-icon">B</div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h3>Body Fitness</h3>
+                                    <span class="tag">Popular</span>
+                                </div>
+                                <p class="card-description">
+                                    Regular exercise and a balanced diet are key to maintaining fitness, boosting energy, and preventing disease. Stay active, eat clean, and prioritize strength and cardio for long-term health.
+                                </p>
+                            </div>
+                            <div class="card-toggle"></div>
+                        </div>
+
+                        <!-- Consumption Card -->
+                        <div class="card">
+                            <div class="card-icon">C</div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h3>Consumption</h3>
+                                    <span class="tag">Popular</span>
+                                </div>
+                                <p class="card-description">
+                                    Smart consumption—choosing nutrient-rich foods, staying hydrated, and avoiding excess sugar/alcohol—supports overall health and energy. Balance indulgences with mindful eating for long-term wellness.
+                                </p>
+                            </div>
+                            <div class="card-toggle"></div>
+                        </div>
+
+                        <!-- Finance Card -->
+                        <div class="card">
+                            <div class="card-icon">F</div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h3>Finance</h3>
+                                    <span class="tag">Popular</span>
+                                </div>
+                                <p class="card-description">
+                                    Smart budgeting and disciplined investing are key to building wealth and financial security. Spend wisely, save consistently, and grow your money through diversified assets.
+                                </p>
+                            </div>
+                            <div class="card-toggle"></div>
+                        </div>
+
+                        <!-- Medicare Card -->
+                        <div class="card">
+                            <div class="card-icon">M</div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h3>Medicare</h3>
+                                    <span class="tag">Popular</span>
+                                </div>
+                                <p class="card-description">
+                                    Medicare provides essential health coverage for seniors, including hospital care, medical services, and prescription drugs. Review your plan options annually to ensure the best coverage for your needs.
+                                </p>
+                            </div>
+                            <div class="card-toggle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Toggle card expansion
+            const cardToggles = document.querySelectorAll('.card-toggle');
+            cardToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const card = toggle.closest('.card');
+                    card.classList.toggle('expanded');
+                });
+            });
+
+            // Navigation menu selection
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

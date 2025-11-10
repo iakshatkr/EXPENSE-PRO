@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Reports</title>
+    <link rel="stylesheet" href="Monthlyreports.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Expense Tracker</h1>
+        </header>
+        
+        <main>
+            <div class="reports-section">
+                <h2>Generate Report</h2>
+                
+                <div class="report-filters">
+                    <div class="form-group">
+                        <label for="report-type">Report Type</label>
+                        <select id="report-type" required>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="report-month">Month</label>
+                        <select id="report-month">
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="report-year">Year</label>
+                        <select id="report-year">
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                    
+                    <button id="generate-report" class="btn">Generate Report</button>
+                </div>
+            </div>
+            
+            <div class="report-container" id="report-container" style="display: none;">
+                <h2 id="report-title">Monthly Report</h2>
+                
+                <div class="report-summary">
+                    <div class="card income">
+                        <h3>Total Income</h3>
+                        <p id="report-total-income">$0</p>
+                    </div>
+                    <div class="card expenses">
+                        <h3>Total Expenses</h3>
+                        <p id="report-total-expenses">$0</p>
+                    </div>
+                    <div class="card balance">
+                        <h3>Balance</h3>
+                        <p id="report-balance">$0</p>
+                    </div>
+                </div>
+                
+                <div class="report-chart-container">
+                    <canvas id="report-chart"></canvas>
+                </div>
+                
+                <div class="report-details">
+                    <h3>Transaction Details</h3>
+                    <table id="report-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-table-body">
+                            <!-- Report details will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="report-actions">
+                    <button id="export-pdf" class="btn">Export as PDF</button>
+                    <button id="export-csv" class="btn">Export as CSV</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="Monthlyreport.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Money Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="Dashboard.css">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Money Tracker</h1>
+            <p>Track your income and expenses in Indian Rupees</p>
+        </header>
+
+        <div class="dashboard">
+            <!-- Overall Balance Card -->
+            <div class="card balance-card">
+                <h2>Overall Balance</h2>
+                <div class="summary">
+                    <div class="summary-item">
+                        <h3>Income</h3>
+                        <p id="total-income">₹0.00</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>Expenses</h3>
+                        <p id="total-expenses">₹0.00</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>Balance</h3>
+                        <p id="remaining-balance">₹0.00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Income Section -->
+            <div class="card">
+                <h2>Add Income</h2>
+                <input type="number" id="income-amount" placeholder="Amount in ₹">
+                <input type="text" id="income-description" placeholder="Description">
+                <button onclick="addIncome()">Add Income</button>
+                <h3>Income History</h3>
+                <ul id="income-list"></ul>
+            </div>
+
+            <!-- Expense Section -->
+            <div class="card">
+                <h2>Add Expense</h2>
+                <input type="number" id="expense-amount" placeholder="Amount in ₹">
+                <input type="text" id="expense-description" placeholder="Description">
+                <button onclick="addExpense()">Add Expense</button>
+                <h3>Expense History</h3>
+                <ul id="expense-list"></ul>
+            </div>
+        
+
+
+           
+             <!-- Monthly Tracking 
+             <div class="card">
+                <h2>Monthly Tracking</h2>
+                <select id="month-dropdown">
+                    <option value="">Select Month</option>
+                </select>
+                <div class="button-group">
+                    <button id="pdf-button" class="export-btn">Download PDF Report</button>
+                    <button id="csv-button" class="export-btn">Download CSV Report</button>
+                </div>
+                <div id="monthly-summary"></div>
+            </div>-->
+
+        </div>
+    </div>
+
+            
+    <script src="Dashboard.js">
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Reports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <link rel="stylesheet" href="report.css">
+</head>
+<body>
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">ExpensePro</div>
+            <div class="nav-menu">
+                <a href="main.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i> <span>Profile</span>
+                </a>
+                <a href="moneytracker.html" class="nav-item">
+                    <i class="fas fa-wallet"></i> <span>Money Tracker</span>
+                </a>
+                <a href="reports.html" class="nav-item active">
+                    <i class="fas fa-file-alt"></i> <span>Monthly Reports</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1 class="welcome">Monthly Reports</h1>
+                <div class="profile">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-adjust"></i>
+                    </button>
+                    <div class="profile-pic"></div>
+                    <button class="logout-btn">Logout</button>
+                </div>
+            </div>
+            
+            <main>
+                <!-- Generate Report Section -->
+                <div class="card">
+                    <h2>Generate Report</h2>
+                    <div class="report-filters">
+                        <div class="form-group">
+                            <label for="report-type">Report Type</label>
+                            <select id="report-type" required>
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="report-month">Month</label>
+                            <select id="report-month">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10" selected>October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="report-year">Year</label>
+                            <select id="report-year">
+                                <!-- Dynamically populated by JavaScript -->
+                            </select>
+                        </div>
+                        
+                        <button id="generate-report" class="btn">Generate Report</button>
+                    </div>
+                </div>
+                
+                <!-- Report Container -->
+                <div class="report-container" id="report-container" style="display: none;">
+                    <h2 id="report-title">Monthly Report - October 2025</h2>
+                    
+                    <div class="report-summary">
+                        <div class="stat-card">
+                            <h3>Total Income</h3>
+                            <p class="stat-value" id="report-total-income">₹0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Expenses</h3>
+                            <p class="stat-value" id="report-total-expenses">₹0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Balance</h3>
+                            <p class="stat-value" id="report-balance">₹0</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Expense Visualization -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Expense Visualization</h2>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <div class="chart-title">Expense Breakdown by Category</div>
+                                <div class="chart-description">Distribution of spending for the selected period</div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="categoryChart"></canvas>
+                            </div>
+                            <div class="chart-controls">
+                                <button class="control-btn" onclick="updateChartPeriod('day')">Day</button>
+                                <button class="control-btn" onclick="updateChartPeriod('week')">Week</button>
+                                <button class="control-btn" onclick="updateChartPeriod('month')">Month</button>
+                                <button class="control-btn" onclick="updateChartPeriod('year')">Year</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Expense Trends</h2>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <div class="chart-title">Monthly Expenses</div>
+                                <div class="chart-description">Last 6 months of spending</div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <canvas id="expenseChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Transaction Details -->
+                    <div class="card">
+                        <h2>Transaction Details</h2>
+                        <table id="report-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody id="report-table-body">
+                                <!-- Report details will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Expense Suggestions -->
+                    <div class="card expense-suggestions">
+                        <h2>Expense Suggestions</h2>
+                        <div id="suggestions-container"></div>
+                    </div>
+                    
+                    <!-- Budget Comparison -->
+                    <div class="card budget-comparison">
+                        <h2>Budget Comparison</h2>
+                        <div id="budget-comparison-container">
+                            <p>Set a budget to compare your spending against targets.</p>
+                            <div class="form-group">
+                                <label for="budget-amount">Monthly Budget (₹)</label>
+                                <select id="budget-category">
+                                    <option value="total">Total Expenses</option>
+                                    <option value="food">Food</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="utilities">Utilities</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <input type="number" id="budget-amount" placeholder="Enter budget amount">
+                                <button class="btn" onclick="setBudget()">Set Budget</button>
+                            </div>
+                            <div id="budget-progress"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Report Actions -->
+                    <div class="report-actions">
+                        <button id="export-pdf" class="btn">Export as PDF</button>
+                        <button id="export-csv" class="btn">Export as CSV</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="reports1.js"></script> 
+</body>
+</html>

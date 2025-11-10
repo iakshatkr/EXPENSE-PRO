@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="money-tracker.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">ExpensePro</div>
+            <div class="nav-menu">
+                <a href="main.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i> <span>Profile</span>
+                </a>
+                <a href="moneytracker.html" class="nav-item active">
+                    <i class="fas fa-wallet"></i> <span>Money Tracker</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-file-alt"></i> <span>Monthly Reports</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1 class="welcome">Money Tracker</h1>
+                <div class="profile">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-adjust"></i>
+                    </button>
+                    <div class="profile-pic"></div>
+                    <button class="logout-btn">Logout</button>
+                </div>
+            </div>
+            
+            <main>
+                <!-- Overall Balance Card -->
+                <div class="card balance-card">
+                    <h2>Overall Balance</h2>
+                    <div class="summary">
+                        <div class="summary-item">
+                            <h3>Income</h3>
+                            <p id="total-income">₹0.00</p>
+                        </div>
+                        <div class="summary-item">
+                            <h3>Expenses</h3>
+                            <p id="total-expenses">₹0.00</p>
+                        </div>
+                        <div class="summary-item">
+                            <h3>Balance</h3>
+                            <p id="remaining-balance">₹0.00</p>
+                        </div>
+                    </div>
+                    <button id="clear-data" class="clear-btn">Clear All Data</button>
+                </div>
+                
+                <!-- Income Section -->
+                <div class="card">
+                    <h2>Add Income</h2>
+                    <input type="number" id="income-amount" placeholder="Amount in ₹">
+                    <input type="text" id="income-description" placeholder="Description">
+                    <button class="btn" onclick="addIncome()">Add Income</button>
+                    <h3>Income History</h3>
+                    <ul id="income-list"></ul>
+                </div>
+
+                <!-- Expense Section -->
+                <div class="card">
+                    <h2>Add Expense</h2>
+                    <input type="number" id="expense-amount" placeholder="Amount in ₹">
+                    <input type="text" id="expense-description" placeholder="Description">
+                    <select id="expense-category">
+                        <option value="food">Food</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button class="btn" onclick="addExpense()">Add Expense</button>
+                    <h3>Expense History</h3>
+                    <ul id="expense-list"></ul>
+                </div>
+
+                <!-- Recommendations Section -->
+                <div class="card recommendations">
+                    <h2>Expense Recommendations</h2>
+                    <div id="recommendations-container"><p>No expenses to analyze yet. Add some expenses to get recommendations.</p></div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="money-tracker1.js">
+        
+     </script>  
+</body>
+</html>

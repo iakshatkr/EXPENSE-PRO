@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">ExpensePro</div>
+            <div class="nav-menu">
+                <a href="main.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+                </a>
+                <a href="profile.html" class="nav-item active">
+                    <i class="fas fa-user"></i> <span>Profile</span>
+                </a>
+                <a href="moneytracker.html" class="nav-item">
+                    <i class="fas fa-wallet"></i> <span>Money Tracker</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <i class="fas fa-file-alt"></i> <span>Monthly Reports</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1 class="welcome">Profile</h1>
+                <div class="profile">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-adjust"></i>
+                    </button>
+                    <div class="profile-pic"></div>
+                    <button class="logout-btn">Logout</button>
+                </div>
+            </div>
+            
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img id="profile-img" src="https://via.placeholder.com/150" alt="Profile Picture">
+                            <button class="avatar-upload" id="upload-btn"><i class="fas fa-camera"></i></button>
+                            <input type="file" id="file-input" accept="image/*" style="display: none;">
+                        </div>
+                        <h2 class="profile-name" id="profile-name">John Doe</h2>
+                        <p class="profile-email" id="profile-email">john@example.com</p>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-expenses">₹12,450</div>
+                            <div class="stat-label">Total Expenses</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-transactions">48</div>
+                            <div class="stat-label">Transactions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="account-age">6</div>
+                            <div class="stat-label">Months with Us</div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" value="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" value="john@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" id="phone" value="+91 98765 43210">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" placeholder="Tell us about yourself">I'm a regular user of Expense Tracker and I love managing my finances with this app.</textarea>
+                        </div>
+
+                        <!-- Premium Feature: Password Change Section -->
+                        <div class="password-section">
+                            <h3>Change Password</h3>
+                            <div class="form-group">
+                                <label for="current-password">Current Password</label>
+                                <input type="password" id="current-password" placeholder="Enter current password">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">New Password</label>
+                                <input type="password" id="new-password" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm New Password</label>
+                                <input type="password" id="confirm-password" placeholder="Confirm new password">
+                            </div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                            <button class="btn" id="save-profile">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js">
+        
+    </script>
+</body>
+</html>
