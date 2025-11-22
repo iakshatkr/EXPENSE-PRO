@@ -73,7 +73,7 @@ body {
 .sidebar nav ul li a.active {
     background-color: #2a2a2a;
     color: white;
-    
+    color: #3a3a3a;
     
 }
 .main-content {
