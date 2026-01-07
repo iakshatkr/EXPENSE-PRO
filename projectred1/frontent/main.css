@@ -17,7 +17,7 @@ body.dark-mode {
     --primary-color: #8b5cf6;
     --primary-gradient: linear-gradient(135deg, #8b5cf6, #c084fc);
     --secondary-color: #6d28d9;
-    --accent-color: #c084fc;
+    --accent-color: #c084fc; 
     --text-color: #e2e8f0;
     --light-bg: #1f2937;
     --card-bg: #2d3748;
