@@ -3,16 +3,17 @@
     let expensesChart, categoryChart;
 
     // DOM elements
-    const totalExpensesElement = document.querySelector('.stat-card.blue .stat-value');
-    const totalIncomeElement = document.querySelector('.stat-card.green .stat-value');
+    const totalExpensesElement = document.querySelector('.stat-card.blue .stat-value'); // query selection for total expenses
+    const totalIncomeElement = document.querySelector('.stat-card.green .stat-value'); // query selection for total income
+
     const balanceElement = document.querySelector('.stat-card.orange .stat-value');
     const transactionList = document.querySelector('.transaction-list');
     const themeToggle = document.getElementById('theme-toggle');
 
     // Initialize the app
-    window.onload = function() {
+    window.onload = function() { 
         updateDashboard();
-        initializeCharts();
+        initializeCharts(); 
 
         // Form submission for adding expenses
         document.getElementById('expense-form').addEventListener('submit', function(e) {
