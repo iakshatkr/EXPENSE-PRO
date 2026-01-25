@@ -212,7 +212,7 @@
         amountInput.value = '';
         descriptionInput.value = '';
         categoryInput.value = '';
-    }
+    } 
 
     // Get Category Icon
     function getCategoryIcon(category) {
@@ -225,4 +225,4 @@
             case 'income': return '<i class="fas fa-money-bill-wave"></i>';
             default: return '<i class="fas fa-ellipsis-h"></i>';
         }
-    }
+    } 
