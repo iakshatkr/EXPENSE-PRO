@@ -2,7 +2,7 @@
     let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
     let expensesChart, categoryChart;
 
-    // DOM elements
+    // DOM elements // learn thiss
     const totalExpensesElement = document.querySelector('.stat-card.blue .stat-value'); // query selection for total expenses
     const totalIncomeElement = document.querySelector('.stat-card.green .stat-value'); // query selection for total income
 
@@ -28,7 +28,7 @@
         });
     };
 
-    // Update Dashboard
+    // Update Dashboard 
     function updateDashboard() {
         const totalIncome = transactions.filter(t => t.type === 'income').reduce((sum, item) => sum + item.amount, 0);
         const totalExpenses = transactions.filter(t => t.type === 'expense').reduce((sum, item) => sum + item.amount, 0);
