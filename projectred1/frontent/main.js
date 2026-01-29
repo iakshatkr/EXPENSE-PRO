@@ -1,7 +1,7 @@
  // Dark Mode Toggle
  document.getElementById('theme-toggle').addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
-    updateChartColors();
+    updateChartColors(); //calls a function to update charts when theme changes
 });
 
 // Sample data for charts
