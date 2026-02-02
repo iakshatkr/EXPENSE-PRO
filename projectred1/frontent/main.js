@@ -82,7 +82,7 @@ window.onload = function() {
                 tooltip: { enabled: true }
             },
             animation: { duration: 1500, easing: 'easeInOutQuad' }
-        }
+        } 
     });
 
     // Form submission
