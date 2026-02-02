@@ -67,7 +67,7 @@ window.onload = function() {
             },
             animation: { duration: 1500, easing: 'easeInOutQuad' }
         }
-    });
+    }); 
 
     // Category Chart
     const categoryCtx = document.getElementById('category-chart').getContext('2d');
@@ -76,7 +76,7 @@ window.onload = function() {
         data: categoryData,
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: false, 
             plugins: {
                 legend: { position: 'right', labels: { color: '#2d3748' } },
                 tooltip: { enabled: true }
