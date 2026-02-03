@@ -18,6 +18,8 @@ const expenseData = {
     }]
 };
 
+
+
 const categoryData = {
     labels: ['Food', 'Entertainment', 'Shopping', 'Travel', 'Utilities', 'Other'],
     datasets: [{
@@ -25,7 +27,7 @@ const categoryData = {
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
         borderWidth: 0
     }]
-};
+}; 
 
 // Function to update chart colors based on theme
 function updateChartColors() {
@@ -39,7 +41,7 @@ function updateChartColors() {
     categoryChart.update();
 }
 
-// Initialize charts
+// Initialize charts 
 let expensesChart, categoryChart;
 window.onload = function() {
     // Expenses Chart
