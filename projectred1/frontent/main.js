@@ -19,6 +19,8 @@ const expenseData = {
 };
 
 
+// the 
+
 
 const categoryData = {
     labels: ['Food', 'Entertainment', 'Shopping', 'Travel', 'Utilities', 'Other'],
