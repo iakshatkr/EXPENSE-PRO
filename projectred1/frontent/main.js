@@ -19,7 +19,7 @@ const expenseData = {
 };
 
 
-// 
+// categorydata items
 
 
 const categoryData = {
@@ -73,7 +73,7 @@ window.onload = function() {
         }
     }); 
 
-    // Category Chart
+    // Category Charts 
     const categoryCtx = document.getElementById('category-chart').getContext('2d');
     categoryChart = new Chart(categoryCtx, {
         type: 'doughnut',
@@ -82,7 +82,7 @@ window.onload = function() {
             responsive: true,
             maintainAspectRatio: false, 
             plugins: {
-                legend: { position: 'right', labels: { color: '#2d3748' } },
+                legend: { position: 'right', labels: { color: '#2c436b' } },
                 tooltip: { enabled: true }
             },
             animation: { duration: 1500, easing: 'easeInOutQuad' }
