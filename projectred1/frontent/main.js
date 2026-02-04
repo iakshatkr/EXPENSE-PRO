@@ -19,7 +19,7 @@ const expenseData = {
 };
 
 
-// the 
+// 
 
 
 const categoryData = {
