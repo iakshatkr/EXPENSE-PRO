@@ -19,7 +19,7 @@ const expenseData = {
 };
 
 
-// categorydata items
+// categorydata items thems 
 
 
 const categoryData = {
@@ -27,7 +27,7 @@ const categoryData = {
     datasets: [{
         data: [30000, 15000, 20000, 15000, 10000, 10000],
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
-        borderWidth: 0
+        borderWidth: 1
     }]
 }; 
 
