@@ -24,7 +24,8 @@
         // Dark mode toggle
         themeToggle.addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
-            updateChartColors();
+            updateChartColors(); 
+            
         });
     };
 
