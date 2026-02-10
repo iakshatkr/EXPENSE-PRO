@@ -19,6 +19,7 @@ const expenseData = {
 };
 
 
+
 // categorydata items thems 
 
 
@@ -82,7 +83,7 @@ window.onload = function() {
             responsive: true,
             maintainAspectRatio: false, 
             plugins: {
-                legend: { position: 'right', labels: { color: '#2c436b' } },
+                legend: { position: 'right', labels: { color: '#959ba5' } },
                 tooltip: { enabled: true }
             },
             animation: { duration: 1500, easing: 'easeInOutQuad' }
