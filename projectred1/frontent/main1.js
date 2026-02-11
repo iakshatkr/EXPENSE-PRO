@@ -163,7 +163,7 @@
     // Update Chart Colors for Dark Mode
     function updateChartColors() {
         const isDark = document.body.classList.contains('dark-mode');
-        const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)';
+        const gridColor = isDark ? 'rgba(29, 11, 11, 0.1)' : 'rgba(0, 0, 0, 0.05)';
         const tickColor = isDark ? '#e2e8f0' : '#2d3748';
         
         expensesChart.options.scales.y.grid.color = gridColor;
