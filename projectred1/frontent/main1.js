@@ -154,8 +154,8 @@
             labels: Object.keys(categoryTotals),
             datasets: [{
                 data: Object.values(categoryTotals),
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
-                borderWidth: 0
+                backgroundColor: ['#FF6384', '#2499e7', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
+                borderWidth: 1
             }]
         };
     }
