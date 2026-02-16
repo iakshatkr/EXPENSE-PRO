@@ -32,7 +32,7 @@ const categoryData = {
     }]
 }; 
 
-// Function to update chart colors based on theme
+// Function to update chart colors based on theme , after entering data
 function updateChartColors() {
     const isDark = document.body.classList.contains('dark-mode');
     expensesChart.options.scales.y.grid.color = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)';
@@ -67,7 +67,7 @@ window.onload = function() {
                 },
                 x: {
                     grid: { display: false },
-                    ticks: { color: '#2d3748' }
+                    ticks: { color: '#3c495f' }
                 }
             },
             animation: { duration: 1500, easing: 'easeInOutQuad' }

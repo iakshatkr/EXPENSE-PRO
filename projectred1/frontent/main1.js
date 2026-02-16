@@ -64,7 +64,7 @@
 
     // Initialize Charts
     function initializeCharts() {
-        // Expenses Chart (Line Chart for Trends)
+        // Expenses Chart (Line Chart for Trends) 
         const expensesCtx = document.getElementById('expenses-chart').getContext('2d');
         expensesChart = new Chart(expensesCtx, {
             type: 'line',
