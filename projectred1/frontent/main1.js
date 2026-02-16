@@ -41,7 +41,7 @@
         
         // Update recent transactions
         transactionList.innerHTML = '';
-        const recentTransactions = transactions.slice().reverse().slice(0, 5); // Last 5 transactions
+        const recentTransactions = transactions.slice().reverse().slice(0, 5); // Last 5 transactions made
         recentTransactions.forEach(item => {
             const div = document.createElement('div');
             div.className = 'transaction-item';
