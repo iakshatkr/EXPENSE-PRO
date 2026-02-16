@@ -74,7 +74,7 @@
                     label: 'Expenses',
                     data: getExpenseDataForLastSixMonths(),
                     backgroundColor: 'rgba(91, 33, 182, 0.2)',
-                    borderColor: 'rgba(91, 33, 182, 1)',
+                    borderColor: 'rgb(77, 31, 151)',
                     borderWidth: 2,
                     tension: 0.4,
                     fill: true
