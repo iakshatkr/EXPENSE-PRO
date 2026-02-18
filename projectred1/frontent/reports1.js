@@ -18,7 +18,7 @@
     const suggestionsContainer = document.getElementById('suggestions-container');
     const budgetProgress = document.getElementById('budget-progress');
     
-    // Initialize the app
+    // Initialize the app ehfruhberhfnierj
     document.addEventListener('DOMContentLoaded', function() {
         initializeCharts();
         populateYearDropdown();
