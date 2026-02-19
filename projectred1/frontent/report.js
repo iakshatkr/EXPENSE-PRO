@@ -97,7 +97,7 @@
             }
         });
 
-        // Expense Bar Chart (initial data for last 6 months)
+        // Expense Bar Chart (initial data for last 6 months) ...
         const expenseCtx = document.getElementById('expenseChart').getContext('2d');
         expenseChartInstance = new Chart(expenseCtx, {
             type: 'bar',
@@ -106,7 +106,7 @@
                 datasets: [{
                     label: 'Expenses',
                     data: [0, 0, 0, 810, 1660, 2270],
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
+                    backgroundColor: ['#FF6384', '#58a9df', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
                     borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
                     borderWidth: 1
                 }]
