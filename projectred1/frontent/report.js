@@ -147,7 +147,7 @@
         const reportMonth = document.getElementById('report-month').value;
         const reportYear = document.getElementById('report-year').value;
         
-        // Filter expenses based on selected period
+        // Filter expenses based on selected period and customizing dates 
         let filteredExpenses = expenses;
         
         if (reportType === 'monthly') {
