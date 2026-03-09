@@ -221,7 +221,7 @@
                 if (!categoryTotals[expense.category]) {
                     categoryTotals[expense.category] = 0;
                 }
-                categoryTotals[expense.category] += expense.amount;
+                categoryTotals[expense.category] += expense.amount; 
             });
         
         // Calculate percentages

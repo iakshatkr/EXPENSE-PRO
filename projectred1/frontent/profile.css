@@ -12,7 +12,7 @@
     --transition: all 0.3s ease;
 }
 
-/* Dark Mode Variables */
+/* Dark Mode Variables */ 
 body.dark-mode {
     --primary-color: #8b5cf6;
     --primary-gradient: linear-gradient(135deg, #8b5cf6, #c084fc);

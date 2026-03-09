@@ -69,7 +69,7 @@ window.onload = function() {
                     grid: { display: false },
                     ticks: { color: '#3c495f' }
                 }
-            },
+            }, 
             animation: { duration: 1500, easing: 'easeInOutQuad' }
         }
     }); 
