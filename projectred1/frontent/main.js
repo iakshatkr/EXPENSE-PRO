@@ -20,7 +20,7 @@ const expenseData = {
 cd 
 
 
-// categorydata items thems 
+// categorydata items themes
 
 
 const categoryData = {
